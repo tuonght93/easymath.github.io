@@ -5213,6 +5213,7 @@ class Pcsc {
     e("loadKeys success"), e("loadKeys : end");
   }
   async generateAutheticate(r, t) {
+    console.log(r, t);
     let i;
     e("generateAutheticate : start"),
       "KeyA" == t ? (i = 96) : "KeyB" == t && (i = 97);
@@ -5228,6 +5229,7 @@ class Pcsc {
       i,
       this.mifareAuthKeyNumber,
     ];
+    console.log(a);
     const o = await this.ccid.escape(a, this.receiveTimeout);
     if (144 != o[0] || 0 != o[1]) {
       const r = "generateAutheticate failed " + bytes2hexs([o[0], o[1]]);
