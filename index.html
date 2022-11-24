@@ -7,7 +7,7 @@
 <body data-new-gr-c-s-check-loaded="14.1087.0" data-gr-ext-installed="">
 	<h3>
 		<div class="header-title">
-			SDK for NFC Web Client Sample 2
+			SDK for NFC Web Client Sample
 		</div>
 	</h3>
 
@@ -169,17 +169,17 @@
 			/* communicateThru(Authentication) */
 			let keyType = 'KeyA';
 			let key = new Uint8Array([0xff,0xff,0xff,0xff,0xff,0xff]);
-			let blockNumber = 8;
-// 			let communicationOption = new CommunicationOption(true, key, keyType, blockNumber, card.uid);
-// 			await lib.communicateThru(null, 0, communicationOption)
-// 			.then(ret => {
-// 				communicateTitle.innerText = 'Reading...\nAuthentication : Success';
-// 				return ret;
-// 			}, (error) => {
-// 				console.log(error);
-// 				communicateTitle.innerText = 'Reading...\nAuthentication : Failed';
-// 				throw(error);
-// 			});
+			let blockNumber = 16;
+			let communicationOption = new CommunicationOption(true, key, keyType, blockNumber, card.uid);
+			await lib.communicateThru(null, 0, communicationOption)
+			.then(ret => {
+				communicateTitle.innerText = 'Reading...\nAuthentication : Success';
+				return ret;
+			}, (error) => {
+				console.log(error);
+				communicateTitle.innerText = 'Reading...\nAuthentication : Failed';
+				throw(error);
+			});
 
 			/* communicateThru(Read Binary) */
 			let read_binary = new Uint8Array([0x30, blockNumber]);
