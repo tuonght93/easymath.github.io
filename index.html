@@ -170,16 +170,16 @@
 			let keyType = 'KeyA';
 			let key = new Uint8Array([0xff,0xff,0xff,0xff,0xff,0xff]);
 			let blockNumber = 8;
-			let communicationOption = new CommunicationOption(true, key, keyType, blockNumber, card.uid);
-			await lib.communicateThru(null, 0, communicationOption)
-			.then(ret => {
-				communicateTitle.innerText = 'Reading...\nAuthentication : Success';
-				return ret;
-			}, (error) => {
-				console.log(error);
-				communicateTitle.innerText = 'Reading...\nAuthentication : Failed';
-				throw(error);
-			});
+// 			let communicationOption = new CommunicationOption(true, key, keyType, blockNumber, card.uid);
+// 			await lib.communicateThru(null, 0, communicationOption)
+// 			.then(ret => {
+// 				communicateTitle.innerText = 'Reading...\nAuthentication : Success';
+// 				return ret;
+// 			}, (error) => {
+// 				console.log(error);
+// 				communicateTitle.innerText = 'Reading...\nAuthentication : Failed';
+// 				throw(error);
+// 			});
 
 			/* communicateThru(Read Binary) */
 			let read_binary = new Uint8Array([0x30, blockNumber]);
